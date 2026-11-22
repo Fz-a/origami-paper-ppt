@@ -1,0 +1,4 @@
+*.pdf
+*.pptx
+!assets/origami-template.pptx
+__pycache__/
