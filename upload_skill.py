@@ -1,14 +1,13 @@
 """Upload an already-reviewed Codex skill folder to a GitHub repository.
 
 Usage: python upload_skill.py SKILL_DIRECTORY --package-dir PACKAGE_DIRECTORY --repo OWNER/REPO
-Authentication: GITHUB_TOKEN / GH_TOKEN, or Git Credential Manager for github.com.
+Authentication: GITHUB_TOKEN or GH_TOKEN environment variable.
 """
 
 import argparse
 import base64
 import json
 import os
-import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -22,16 +21,7 @@ def credential():
     token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
     if token:
         return token
-    result = subprocess.run(
-        ["git", "credential", "fill"],
-        input="protocol=https\nhost=github.com\n\n",
-        text=True, capture_output=True, check=False,
-    )
-    if result.returncode == 0:
-        for line in result.stdout.splitlines():
-            if line.startswith("password="):
-                return line.partition("=")[2]
-    raise RuntimeError("No GitHub token found. Set GITHUB_TOKEN or sign in with Git Credential Manager.")
+    raise RuntimeError("No GitHub token found. Set GITHUB_TOKEN or GH_TOKEN.")
 
 
 def request(method, url, token, payload=None):
