@@ -22,3 +22,14 @@ The public template has no presenter name, school, paper content, author photos,
 ## License
 
 MIT. See `LICENSE`.
+
+## Updating the repository
+
+After editing your local skill, run:
+
+```powershell
+python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-dir . --repo OWNER/origami-paper-ppt --dry-run
+python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-dir . --repo OWNER/origami-paper-ppt
+```
+
+The script uses GITHUB_TOKEN, GH_TOKEN, or Git Credential Manager. It stores no credentials.
