@@ -32,4 +32,4 @@ python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-di
 python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-dir . --repo OWNER/origami-paper-ppt
 ```
 
-The script uses GITHUB_TOKEN, GH_TOKEN, or Git Credential Manager. It stores no credentials.
+The script uses GITHUB_TOKEN or GH_TOKEN. It stores no credentials and does not open a browser.
