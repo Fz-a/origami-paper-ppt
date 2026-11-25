@@ -14,7 +14,7 @@ import urllib.request
 from pathlib import Path
 
 
-FILES = ("SKILL.md", "README.md", "LICENSE", ".gitignore", "assets/origami-template.pptx", "upload_skill.py")
+FILES = ("SKILL.md", "README.md", "LICENSE", ".gitignore", "assets/paper-template.pptx", "upload_skill.py")
 
 
 def credential():
@@ -54,7 +54,7 @@ def main():
     package = args.package_dir.resolve()
     files = {}
     for relative in FILES:
-        path = (root if relative in ("SKILL.md", "assets/origami-template.pptx") else package) / relative
+        path = (root if relative in ("SKILL.md", "assets/paper-template.pptx") else package) / relative
         if not path.is_file():
             parser.error(f"Missing file: {path}")
         files[relative] = path.read_bytes()
