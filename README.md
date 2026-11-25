@@ -1,35 +1,30 @@
-# Origami Paper PPT
+# Paper PPT Template
 
-A reusable Codex skill for turning two origami or mechanical metamaterials research PDFs into separate Chinese presentation decks. It includes a generic 10-slide PowerPoint template and guidance for paper analysis, relevant figures, concise slide text, speaker notes, and visual checks.
+A Codex skill for turning research paper PDFs into Chinese presentation decks with a reusable 10-slide PowerPoint layout. It guides paper analysis, figure selection, concise slide writing, speaker notes, and visual checks. It is not tied to any research field.
 
 ## Use
 
-Copy this folder to your Codex skills directory as `origami-paper-ppt`, then ask:
+Install this folder as `paper-ppt-template` in your Codex skills directory, then ask:
 
-> 使用 origami-paper-ppt，把这两篇 PDF 按模板做成 PPT，包含逐页演讲备注。
+> 使用 paper-ppt-template，把这些论文 PDF 按模板做成 PPT，并加入逐页演讲备注。
 
-The included template contains placeholders only. Replace them with verified claims and figures from the supplied papers. The skill targets about 6–7 minutes of speaking across two decks by default.
+The template contains generic placeholders only. Replace them with verified claims and figures from the supplied papers. For two papers, the default speaking time is about 6–7 minutes total unless the user specifies otherwise.
 
-## Privacy
-
-The public template has no presenter name, school, paper content, author photos, or personal speaker notes. It retains only the reusable layout and generic placeholders.
-
-## Contents
+## Files
 
 - `SKILL.md` — workflow and quality checks
-- `assets/origami-template.pptx` — generic PowerPoint layout
+- `assets/paper-template.pptx` — generic PowerPoint layout
+- `upload_skill.py` — upload local skill updates to GitHub with `GITHUB_TOKEN` or `GH_TOKEN`
+
+The template contains no presenter name, school, paper content, or personal speaker notes.
+
+## Updating
+
+```powershell
+python upload_skill.py C:/Users/you/.codex/skills/paper-ppt-template --package-dir . --repo OWNER/paper-ppt-template --dry-run
+python upload_skill.py C:/Users/you/.codex/skills/paper-ppt-template --package-dir . --repo OWNER/paper-ppt-template
+```
 
 ## License
 
 MIT. See `LICENSE`.
-
-## Updating the repository
-
-After editing your local skill, run:
-
-```powershell
-python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-dir . --repo OWNER/origami-paper-ppt --dry-run
-python upload_skill.py C:/Users/you/.codex/skills/origami-paper-ppt --package-dir . --repo OWNER/origami-paper-ppt
-```
-
-The script uses GITHUB_TOKEN or GH_TOKEN. It stores no credentials and does not open a browser.
